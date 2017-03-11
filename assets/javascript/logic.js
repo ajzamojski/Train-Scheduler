@@ -1,10 +1,10 @@
- // Initialize Firebase
+  // Initialize Firebase
   var config = {
-    apiKey: "AIzaSyCm4KQTvTbDH6modpykRVIPXi-rPAm71xA",
-    authDomain: "train-scheduler-be8b0.firebaseapp.com",
-    databaseURL: "https://train-scheduler-be8b0.firebaseio.com",
-    storageBucket: "train-scheduler-be8b0.appspot.com",
-    messagingSenderId: "44698097164"
+    apiKey: "AIzaSyAWNp9RphBo5w-1me5PUTGdryJCB8P1O6s",
+    authDomain: "train-scheduler-e0ff3.firebaseapp.com",
+    databaseURL: "https://train-scheduler-e0ff3.firebaseio.com",
+    storageBucket: "train-scheduler-e0ff3.appspot.com",
+    messagingSenderId: "1007672431625"
   };
   firebase.initializeApp(config);
 
@@ -20,18 +20,12 @@
   	var trainName = 		$("#train-name-input").val().trim();
   	var destinationName = 	$("#destination-input").val().trim();
   	var trainTime =  moment($("#train-start-input").val().trim(), "HH:mm").format("HH:mm");
-  	var frequency = 		$("#frequency-input").val().trim();
-  	var trainClose = 		$("<button>");
-  	  trainClose.attr("data- " +trainButton);
-	    trainClose.addClass("trainClass");
-	    trainClose.text("Remove Train");
-	    $("#trainRemove").append(trainClose);
-
+  	var frequency1= 		$("#timer-input").val().trim();
 
   	console.log(trainName);
   	console.log(destinationName);
   	console.log(trainTime);
-  	console.log(frequency);
+  	console.log(frequency1);
 
   	//Creates object that holds train items
   	var newTrain =
@@ -39,7 +33,7 @@
   		trainName: trainName,
   		destinationName: destinationName,
   		trainTime: trainTime,
-  		frequency: frequency,
+  		frequency1: frequency1
   	}
 
   	//Sends the train object to the database
@@ -48,14 +42,13 @@
   	return false;
   });
 
-
 	// Create Firebase event for adding employee to the database and a row in the html when a user adds an entry
 	database.ref().on("child_added", function(snapshot) {
 
 		var trainName = snapshot.val().trainName;
 		var destinationName = snapshot.val().destinationName;
 		var trainTime = snapshot.val().trainTime;
-		var frequency = snapshot.val().frequency;
+		var frequency = snapshot.val().frequency1;
 		// var trainButton = snapshot.val().trainButton;
 
 		// Time entered
@@ -103,16 +96,4 @@
 	}
 
 	run();
-
-	$(document.body).on("click", ".checkbox", function() {
-
-
-
-	});
-
-
-
-
-
-
 
