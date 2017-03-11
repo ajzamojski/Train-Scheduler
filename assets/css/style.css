@@ -1,0 +1,29 @@
+body {
+	background-image: url("../images/naturalblack.png");
+}
+
+.jumbotron {
+	background-image: url("../images/train.jpg");
+	color: white;
+	border-style: solid;
+	border-width: 3px;
+	border-color: white;
+}
+
+#displayTime {
+	font-size: 24px;
+}
+
+.panel-primary>.panel-heading {
+	background-image: url("../images/train.jpg");	
+	border-style: solid;
+	border-width: 3px;
+	border-color: white;
+}
+
+.btn-primary {
+	background-image: url("../images/train.jpg");
+	border-style: solid;
+	border-width: 3px;
+	border-color: white;
+}
